@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="light dark">
     <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-MBM4L6X4"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -86,12 +87,27 @@
 
     <style>
         :root {
+            --bg-color: #ffffff;
             --text-color: #1a1a1a;
+            --heading-color: #111111;
             --muted-color: #555555;
             --accent-color: #0b5e38;
             --border-color: #e0e0e0;
             --bg-subtle: #f8f9fa;
         }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg-color: #13171f;
+                --text-color: #e2e8f0;
+                --heading-color: #f8fafc;
+                --muted-color: #94a3b8;
+                --accent-color: #34d399;
+                --border-color: #2d3748;
+                --bg-subtle: #1e2430;
+            }
+        }
+
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             line-height: 1.75;
@@ -99,7 +115,8 @@
             max-width: 780px;
             margin: 0 auto;
             padding: 2rem 1.25rem;
-            background-color: #ffffff;
+            background-color: var(--bg-color);
+            transition: background-color 0.2s ease, color 0.2s ease;
         }
         header {
             border-bottom: 1px solid var(--border-color);
@@ -110,7 +127,7 @@
             font-size: 2.2rem;
             line-height: 1.2;
             margin-bottom: 1rem;
-            color: #111111;
+            color: var(--heading-color);
         }
         .meta-info {
             font-size: 0.9rem;
@@ -120,9 +137,12 @@
             font-size: 1.5rem;
             margin-top: 2.5rem;
             margin-bottom: 1rem;
-            color: #111111;
+            color: var(--heading-color);
             border-bottom: 2px solid var(--accent-color);
             padding-bottom: 0.3rem;
+        }
+        h3 {
+            color: var(--heading-color);
         }
         p {
             margin-bottom: 1.25rem;
@@ -155,6 +175,7 @@
             font-weight: 700;
             display: block;
             margin-bottom: 0.35rem;
+            color: var(--heading-color);
         }
         footer {
             margin-top: 3rem;
